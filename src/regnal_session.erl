@@ -4,7 +4,7 @@
 create_session(Player1, Player2) ->
     % TODO - Return a new session
     {ok, #{player1 => Player1, player2 => Player2, state => waiting}}.
-    % {ok, #{player1=Player1, player2=Player2, state=waiting}}.
+% {ok, #{player1=Player1, player2=Player2, state=waiting}}.
 
 join_session(_SessionId, _Player2) ->
     % do something

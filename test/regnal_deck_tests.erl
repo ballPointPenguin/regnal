@@ -1,13 +1,19 @@
 -module(regnal_deck_tests).
+
 -include_lib("eunit/include/eunit.hrl").
 
 create_deck_test() ->
     Deck = regnal_deck:create_deck(),
     ?assertEqual(52, length(Deck)),
-    ?assert(lists:all(fun({Rank, Suit}) ->
-        lists:member(Rank, [2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace]) andalso
-        lists:member(Suit, [spades, hearts, diamonds, clubs])
-    end, Deck)).
+    ?assert(
+        lists:all(
+            fun({Rank, Suit}) ->
+                lists:member(Rank, [2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace]) andalso
+                    lists:member(Suit, [spades, hearts, diamonds, clubs])
+            end,
+            Deck
+        )
+    ).
 
 shuffle_test() ->
     Deck = regnal_deck:create_deck(),

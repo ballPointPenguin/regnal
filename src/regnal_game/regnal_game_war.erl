@@ -8,4 +8,3 @@ new_game() ->
 turn(GameState) ->
     % do something
     {ok, GameState}.
-

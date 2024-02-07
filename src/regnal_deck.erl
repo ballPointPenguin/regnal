@@ -1,14 +1,22 @@
 -module(regnal_deck).
+
 -export([create_deck/0, shuffle/1, split_deck/1, draw_card/1]).
 
 create_deck() ->
     Suits = [spades, hearts, diamonds, clubs],
     Ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace],
-    [{Rank, Suit } || Suit <- Suits, Rank <- Ranks].
+    [{Rank, Suit} || Suit <- Suits, Rank <- Ranks].
 
 % Shuffles the deck using the rand module
 shuffle(Deck) ->
-    shuffle(Deck, rand:seed_s(exsplus, {erlang:monotonic_time(), erlang:unique_integer(), erlang:monotonic_time()}), []).
+    shuffle(
+        Deck,
+        rand:seed_s(
+            exsplus,
+            {erlang:monotonic_time(), erlang:unique_integer(), erlang:monotonic_time()}
+        ),
+        []
+    ).
 
 shuffle([], _Seed, Acc) ->
     Acc;
